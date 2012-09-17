@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+
+/*----------`Main Site Style--------------*/
+
+.text{
+  height: 100px;
+}
+
+/*----------`Category Style--------------*/
+
+.category-thumbs{
+	min-height: 150px;
+}

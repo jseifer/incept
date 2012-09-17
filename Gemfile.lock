@@ -59,6 +59,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    friendly_id (4.0.7)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -140,6 +141,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails
   devise
+  friendly_id (~> 4.0.1)
   jquery-rails
   jquery-ui-rails
   less-rails
