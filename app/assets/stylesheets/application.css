@@ -15,12 +15,10 @@
 
 /*----------`Main Site Style--------------*/
 
-.text{
-  height: 100px;
+textarea#topic_description.text {
+  height: 150px;
 }
 
 /*----------`Category Style--------------*/
 
-.category-thumbs{
-	min-height: 150px;
-}
+
