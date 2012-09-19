@@ -1,0 +1,25 @@
+<div class="page-header">
+</div>
+<div class"page-body">
+	
+		<div class="topic-main">
+			<ul class="thumbnails">
+				<% @topics.each do |topic| %>
+					<li class="span3">
+						<div class="thumbnail">
+							<%= topic.title %>
+							<hr class="lessspace">
+							<div class="topic-description">
+								<p>
+								<%= topic.description %>
+								</p>
+							</div>
+							<%= link_to "Go", t_path(topic), :class=>"btn btn-large btn-block btn-primary"%>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+		
+</div>
+
