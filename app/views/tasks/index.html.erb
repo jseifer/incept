@@ -1,0 +1,33 @@
+<h1>Listing tasks</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Topic</th>
+    <th>Url</th>
+    <th>Est completion</th>
+    <th>Level</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.name %></td>
+    <td><%= task.description %></td>
+    <td><%= task.topic %></td>
+    <td><%= task.url %></td>
+    <td><%= task.est_completion %></td>
+    <td><%= task.level %></td>
+    <td><%= link_to 'Show', topic_task_path(@topic,task) %></td>
+    <td><%= link_to 'Edit', edit_topic_task_path(@topic,task) %></td>
+    <td><%= link_to 'Destroy', topic_task_path(@topic,task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Task', new_topic_task_path %>

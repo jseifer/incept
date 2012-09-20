@@ -1,0 +1,57 @@
+<div class="row-fluid">
+	<div class="span8">
+	   <div class="row-fluid">
+    	<div class="span8">  
+        	<h4><strong><h3><%= @task.name %></h3></strong></h4>
+        	<p> 
+            <span class="label label-info"><%= @task.level.name %></span>
+         
+       		<% if @task.completed_by_me(current_user) == true %>
+       			| <span class="label label-info">Completed</span>
+       		<% else %>
+       		    | <span class="label label-error">Not Complete</span>
+       		<% end %>
+       		
+           </p> 
+        </div>
+    	
+    </div>
+		<div class="task-page-body">
+			<p><%= @task.description %></p>
+		</div>
+		<div class="task-list">
+			
+		</div>
+	</div>
+	<div class="span4">
+		<div class="tool-group">
+    		<div class="btn-toolbar">
+  			<div class="btn-group">
+      			<a href="#" class="btn"><i class="icon-white icon-comment"></i></a>
+     		    <a href="#" class="btn"><i class="icon-white icon-share-alt"></i></a>
+      			<a href="#" class="btn"><i class="icon-white icon-heart"></i></a>
+  			</div>
+  			<div class="btn-group">
+  				<%= link_to edit_topic_task_path(@topic,@task), :class=>"btn"  do %>
+  					<i class="icon-white icon-pencil"></i>
+  				<% end %>
+  			    <%= link_to topic_task_path(@topic,@task), method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn" do  %>
+  			    	<i class="icon-white icon-trash"></i> 
+  			    <% end %>
+ 
+  			</div>
+	        </div>
+           
+       </div>
+		<div class="users-completed">
+			Completed By: <%= @task.users_completed %>
+		</div>
+		<div class="times-completed">
+			Completions: <%= @task.completes %>
+		</div>
+		<div class="task-controls">
+    	</div>
+    </div>
+</div>
+
+

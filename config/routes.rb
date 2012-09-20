@@ -1,8 +1,16 @@
 Incept::Application.routes.draw do
   
 
-  resources :topics, :only => [:new, :create, :edit, :destroy, :update]
-  resources :t, :controller => "topics", :only => [:index, :show]
+  resources :task_completers
+
+  resources :levels
+
+  
+
+  resources :topics do 
+    resources :tasks
+  end
+
   get "dashboard/index"
   get "welcome/index"
   

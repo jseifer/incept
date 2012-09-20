@@ -24,6 +24,8 @@ gem 'thin'
 gem 'simple_form'
 gem 'devise'
 gem 'friendly_id', '~> 4.0.1'
+gem 'cancan'
+gem 'rolify'
 
 
 # To use ActiveModel has_secure_password

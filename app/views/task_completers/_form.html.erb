@@ -1,0 +1,16 @@
+<%= simple_form_for(@task_completer) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.association :task %>
+    <%= f.input :date %>
+    <%= f.input :verification %>
+    <%= f.input :time_spent %>
+    <%= f.input :rating %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
