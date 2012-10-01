@@ -35,7 +35,8 @@ class TasksController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @task = @topic.tasks.build(params[:task])
-
+    add_breadcrumb @topic.name, topic_path(@topic)
+    add_breadcrumb "New Task"
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }
@@ -53,7 +54,8 @@ class TasksController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @task = @topic.tasks.build(params[:task])
-
+    add_breadcrumb @topic.name, topic_path(@topic)
+    add_breadcrumb @task.name, topic_task_path(@topic,@task)
     respond_to do |format|
       if @task.save
         format.html { redirect_to topic_task_path(@topic,@task), notice: 'Task was successfully created.' }

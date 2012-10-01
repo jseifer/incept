@@ -24,4 +24,6 @@ class Task < ActiveRecord::Base
     
     users.count
   end
+  
+
 end

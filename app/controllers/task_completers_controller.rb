@@ -2,6 +2,8 @@ class TaskCompletersController < ApplicationController
   # GET /task_completers
   # GET /task_completers.json
   def index
+  
+   
     @task_completers = TaskCompleter.all
 
     respond_to do |format|
@@ -13,7 +15,8 @@ class TaskCompletersController < ApplicationController
   # GET /task_completers/1
   # GET /task_completers/1.json
   def show
-    @task_completer = TaskCompleter.find(params[:id])
+    @user = User.find(current_user)
+    @task_completer = @user.task_completers.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,8 +27,9 @@ class TaskCompletersController < ApplicationController
   # GET /task_completers/new
   # GET /task_completers/new.json
   def new
-    @task_completer = TaskCompleter.new
-
+    @user = User.find(current_user)
+    @task = Task.find(params[:task_id])
+    @task_completer = @user.task_completers.build(:task_id => @task)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task_completer }
@@ -40,7 +44,8 @@ class TaskCompletersController < ApplicationController
   # POST /task_completers
   # POST /task_completers.json
   def create
-    @task_completer = TaskCompleter.new(params[:task_completer])
+    @user = User.find(current_user)
+    @task_completer = @user.task_completers.build(params[:task_completer])
 
     respond_to do |format|
       if @task_completer.save

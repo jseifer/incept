@@ -13,9 +13,15 @@
  */
 
 
-/*----------`Main Site Style--------------*/
+/*----------`Topic Style--------------*/
 
 textarea#topic_description.text {
+  height: 150px;
+}
+
+/*----------`Task Style--------------*/
+
+textarea#task_description.text {
   height: 150px;
 }
 

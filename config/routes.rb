@@ -1,14 +1,14 @@
 Incept::Application.routes.draw do
   
 
-  resources :task_completers
+  
 
   resources :levels
 
-  
+  resources :task_completers
 
   resources :topics do 
-    resources :tasks
+    resources :tasks 
   end
 
   get "dashboard/index"
