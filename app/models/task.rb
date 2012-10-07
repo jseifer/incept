@@ -25,5 +25,12 @@ class Task < ActiveRecord::Base
     users.count
   end
   
+  def link_details
+    if self.url.present?
+    Linkser.parse self.url
+    else 
+    nil
+    end
+  end
 
 end
