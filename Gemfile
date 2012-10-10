@@ -43,7 +43,7 @@ group :test do
   gem "guard-rspec"
 end
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
