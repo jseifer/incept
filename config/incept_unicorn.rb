@@ -1,5 +1,5 @@
 working_directory "/var/src/incept"
-pid "/var/src/incept/tmp/pids/incept.pid"
+pid "/var/src/incept/tmp/pids/unicorn.pid"
 stderr_path "/var/src/incept/log/unicorn.log"
 stdout_path "/var/src/incept/log/unicorn.log"
 
