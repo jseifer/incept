@@ -8,4 +8,6 @@ class Topic < ActiveRecord::Base
   validates_presence_of :name, :title, :description
   
   has_many :tasks
+  has_many :contents
+  
 end

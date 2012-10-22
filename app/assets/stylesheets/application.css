@@ -28,3 +28,19 @@ textarea#task_description.text {
 /*----------`Category Style--------------*/
 
 
+/*----------`Content Index--------------*/
+
+div.thumb-description{
+	min-height: 210px;
+}
+li.content-thumb{
+	min-height: 240px;
+}
+
+div.thumb-body {
+	text-align: center;
+}
+div.thumb-body img{
+	width: 90%;
+	
+}

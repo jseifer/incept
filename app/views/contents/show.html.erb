@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<% if @content.video_url.present? %>
+    	<iframe width="560" height="315" src="<%= @content.video_url%>" frameborder="0" allowfullscreen></iframe>	
+<% end %>
+    
+
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>

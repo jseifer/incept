@@ -1,0 +1,6 @@
+	<% @todo_list.each do |task| %>
+		    <% if task.task_due == true%>
+		    <h4><%= task.name %></h4>
+			<%= render "task_completions/new", :task => task %>
+			<% end %>
+		<% end %>

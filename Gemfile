@@ -16,9 +16,10 @@ group :assets do
   gem 'uglifier'
   gem 'less-rails'
   gem 'jquery-ui-rails'
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+  
 
 end
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'turbolinks'
 gem 'jquery-rails'
 gem 'thin'
@@ -27,7 +28,8 @@ gem 'devise'
 gem 'friendly_id', '~> 4.0.1'
 gem 'cancan'
 gem 'rolify'
-gem 'linkser'
+gem 'acts-as-taggable-on'
+
 
 
 # To use ActiveModel has_secure_password

@@ -1,0 +1,8 @@
+<%= simple_form_for @task_completion, :html => { :class => 'form-inline' } do |f| %>
+  <%= f.input :task_id, :as => "hidden" %>
+  <%= f.input :started_at, :input_html => {:class=> "input input-small"} %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                task_completions_path, :class => 'btn' %>
+
+<% end %>

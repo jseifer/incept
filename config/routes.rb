@@ -1,18 +1,20 @@
 Incept::Application.routes.draw do
   
 
-  
+  resources :task_completions
 
-  resources :levels
-
-  resources :task_completers
-
-  resources :topics do 
-    resources :tasks 
-  end
-
+  get "tags/index"
+  get 'content_tags/:tag', to: 'tags#index', as: :tag
   get "dashboard/index"
   get "welcome/index"
+  
+  resources :contents
+  resources :levels
+  resources :tasks   
+  resources :topics
+ 
+
+  
   
   
   devise_for :users

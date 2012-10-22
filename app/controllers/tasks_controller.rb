@@ -1,13 +1,8 @@
 class TasksController < ApplicationController
-  add_breadcrumb "Topics", "/topics"
-
-
-
   # GET /tasks
   # GET /tasks.json
   def index
-    @topic = Topic.find(params[:topic_id])
-    @tasks = @topic.tasks
+    @tasks = Task.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,12 +13,8 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
- 
-  
-    @topic = Topic.find(params[:topic_id])
-    @task = @topic.tasks.find(params[:id])
-    add_breadcrumb @topic.name, topic_path(@topic)
-    add_breadcrumb @task.name, topic_task_path(@topic,@task)
+    @task = Task.find(params[:id])
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @task }
@@ -33,10 +24,9 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @topic = Topic.find(params[:topic_id])
-    @task = @topic.tasks.build(params[:task])
-    add_breadcrumb @topic.name, topic_path(@topic)
-    add_breadcrumb "New Task"
+    @user = User.find(current_user)
+    @task = @user.task_ownerships.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }
@@ -45,20 +35,19 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @topic = Topic.find(params[:topic_id])
-    @task = @topic.tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
-    @topic = Topic.find(params[:topic_id])
-    @task = @topic.tasks.build(params[:task])
-    add_breadcrumb @topic.name, topic_path(@topic)
-    add_breadcrumb @task.name, topic_task_path(@topic,@task)
+   
+    @user = User.find(current_user)
+    @task = @user.task_ownerships.build(params[:task])
+
     respond_to do |format|
       if @task.save
-        format.html { redirect_to topic_task_path(@topic,@task), notice: 'Task was successfully created.' }
+        format.html { redirect_to dashboard_index_path, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -70,12 +59,11 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @topic = Topic.find(params[:topic_id])
-    @task = @topic.tasks.find(params[:id])
+    @task = Task.find(params[:id])
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to topic_task_path, notice: 'Task was successfully updated.' }
+        format.html { redirect_to dashboard_index_path, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

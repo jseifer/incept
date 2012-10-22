@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920073104) do
+ActiveRecord::Schema.define(:version => 20121022223357) do
+
+  create_table "contents", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.string   "image"
+    t.string   "url"
+    t.string   "tag_list"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "video_url"
+    t.string   "video_thumbnails"
+    t.string   "series"
+    t.integer  "topic_id"
+  end
 
   create_table "levels", :force => true do |t|
     t.string   "name"
@@ -31,38 +46,56 @@ ActiveRecord::Schema.define(:version => 20120920073104) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
-  create_table "task_completers", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "task_id"
-    t.date     "date"
-    t.string   "verification"
-    t.string   "time_spent"
-    t.string   "rating"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
   end
 
-  add_index "task_completers", ["task_id"], :name => "index_task_completers_on_task_id"
-  add_index "task_completers", ["user_id"], :name => "index_task_completers_on_user_id"
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "task_completions", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.boolean  "complete"
+    t.integer  "active_minutes"
+  end
+
+  add_index "task_completions", ["task_id"], :name => "index_task_completions_on_task_id"
+  add_index "task_completions", ["user_id"], :name => "index_task_completions_on_user_id"
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
-    t.string   "slug"
-    t.text     "description"
-    t.integer  "topic_id"
-    t.string   "url"
-    t.string   "est_completion"
-    t.integer  "level_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.boolean  "repeatable"
-    t.boolean  "approved"
-    t.integer  "approved_by"
-    t.datetime "approved_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.boolean  "complete"
+    t.datetime "completed_at"
+    t.datetime "started_at"
+    t.integer  "user_id"
+    t.string   "rating"
+    t.integer  "content_id"
+    t.boolean  "reccuring"
+    t.integer  "interval"
+    t.integer  "interval_modifier"
+    t.boolean  "reminders"
+    t.datetime "last_completed"
   end
 
-  add_index "tasks", ["level_id"], :name => "index_tasks_on_level_id"
-  add_index "tasks", ["topic_id"], :name => "index_tasks_on_topic_id"
+  add_index "tasks", ["content_id"], :name => "index_tasks_on_content_id"
+  add_index "tasks", ["user_id"], :name => "index_tasks_on_user_id"
 
   create_table "topics", :force => true do |t|
     t.string   "name"

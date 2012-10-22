@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   
-  has_many :task_completers
+  has_many :task_completions
+  has_many :tasks, :through => :task_completions
+  has_many :task_ownerships, :class_name => "Task", :foreign_key => "user_id"
 end

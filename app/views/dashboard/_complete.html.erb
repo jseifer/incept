@@ -1,0 +1,12 @@
+<% @todo_list.each do |task| %>
+		    <% if task.task_due == false%>
+		    <div class="row-fluid">
+		    	<div class="span2">	
+			      <%= task.name %>
+			    </div>
+			    <div class="span2">
+			       <%= task.last_completed.strftime("%d - %B - %Y") %> <%= link_to "Edit", edit_task_path(task) %>
+			    </div>
+			</div>
+			<% end %>
+		<% end %>

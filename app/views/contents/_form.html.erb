@@ -1,0 +1,30 @@
+<%= simple_form_for(@content) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<div class="row-fluid">
+  	<div class="span8 content-pane">
+  		<% if @content.video_url == !nil %>
+    	<iframe width="560" height="315" src="<%= @content.video_url%>" frameborder="0" allowfullscreen></iframe>	
+    	<% end %>
+        <%= f.input :video_url, :input_html => {:class=>"input span7"}%>
+    </div>
+    <div class="span4 edit-pane">
+    <%= f.input :name %>
+    <%= f.input :series%>
+    <%= f.association :topic%>
+    <%= f.input :slug %>
+    <%= f.input :description %>
+    <%= f.input :image %>
+    <%= f.input :url %>
+    <%= f.input :tag_list %>
+    </div>
+    </div>
+  </div>
+
+  
+
+  <div class="form-actions">
+    <%= f.button :submit, :disable_with => "Processing..." %>
+  </div>
+<% end %>

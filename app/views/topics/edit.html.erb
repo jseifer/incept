@@ -1,8 +1,6 @@
+<%- model_class = Topic -%>
 <div class="page-header">
-	<%= link_to 'Back', topic_path(@topic) %>
+  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                   :default => "Edit #{model_class.model_name.human}") %></h1>
 </div>
-
-
-	<%= render 'form' %>
-
-
+<%= render :partial => 'form' %>
