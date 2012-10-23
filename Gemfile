@@ -29,6 +29,7 @@ gem 'friendly_id', '~> 4.0.1'
 gem 'cancan'
 gem 'rolify'
 gem 'acts-as-taggable-on'
+gem 'client_side_validations'
 
 
 

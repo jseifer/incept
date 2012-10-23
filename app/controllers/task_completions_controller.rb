@@ -47,7 +47,7 @@ class TaskCompletionsController < ApplicationController
         format.html { redirect_to @task_completion, notice: 'Task completion was successfully created.' }
         format.json { render json: @task_completion, status: :created, location: @task_completion }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to root_path, alert: 'Errors prevented you from completing that task' }
         format.json { render json: @task_completion.errors, status: :unprocessable_entity }
       end
     end

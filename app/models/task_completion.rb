@@ -3,6 +3,7 @@ class TaskCompletion < ActiveRecord::Base
   belongs_to :user
   attr_accessible :completed_at, :started_at, :user_id, :task_id, :complete, :active_minutes
   
+  validates_presence_of :active_minutes
   after_save :update_task
   
   before_save :update_task_details
