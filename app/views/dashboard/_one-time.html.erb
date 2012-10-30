@@ -1,6 +1,6 @@
 	<% @task_list.each do |task| %>
-		 <% if task.last_completed == nil %>
+	
 		    <h4><%= task.name %></h4>
 			<%= render "task_completions/new", :task => task %>
-	     <% end %>
+	
 		<% end %>

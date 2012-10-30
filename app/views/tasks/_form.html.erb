@@ -1,16 +1,23 @@
 <%= simple_form_for @task, :html => { :class => 'form-horizontal' } do |f| %>
+
   <fieldset>
   	<legend></legend>
+  	<% if params[:name].present? %>
+  	<%= f.input :name, :input_html => {:value => params[:name ]} %>
+ 
+    <% else %>
   	<%= f.input :name %>
+  	<% end %>
  	<%= f.input :started_at , :input_html => {:class=> "input input-small"}%>
-    <%= f.input :reccuring %>
-    <%= f.association :content %>
-    	
-    		<%= f.input :interval, :as => "select", :collection => 1..12, :include_blank => false, :input_html => {:class=> "input input-small"} %>
-    	
    
-    		<%= f.input :interval_modifier, :label => false, :as => "select", :collection => [["Minutes", 1], ["Hours", 60], ["Days", 1440]], :include_blank => false, :input_html => {:class=> "input input-small"} %>
-    
+    <%= f.input :content_id, :input_html => {:value => params[:content_id]}%>
+    	   
+    	   
+     <% unless params[:content_id].present? %>
+     <%= f.input :reccuring %>
+     <%= f.input :interval, :as => "select", :collection => 1..12, :include_blank => false, :input_html => {:class=> "input input-small"} %>
+     <%= f.input :interval_modifier, :label => false, :as => "select", :collection => [["Minutes", 1], ["Hours", 60], ["Days", 1440]], :include_blank => false, :input_html => {:class=> "input input-small"} %>
+    <% end %>
     
   </fieldset>
   <div class="form-actions">

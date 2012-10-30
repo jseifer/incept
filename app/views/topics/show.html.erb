@@ -23,6 +23,7 @@
 						<p>
 						  <i class="icon-heart"></i> Favorite
 						| <i class="icon-share"></i> <%= link_to "Link", content.url%>
+						| <i class="icon-tasks"></i> <%= link_to "Do This", new_task_path(:content_id => content.id, :name => content.name)  %>
 						| <% content.tags.each do |tag| %>
 							<%= link_to tag_path(tag) do %>
 								<span class="label label-info"><%= tag.name %></span>
