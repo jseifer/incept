@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
   belongs_to :topic
   belongs_to :level
   belongs_to :user
-  
+  belongs_to :content
   has_many :task_completions
   has_many :users, :through => :task_completions
   

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	rolify
+	acts_as_followable
+	acts_as_follower
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -13,4 +15,5 @@ class User < ActiveRecord::Base
   has_many :task_completions
   has_many :tasks, :through => :task_completions
   has_many :task_ownerships, :class_name => "Task", :foreign_key => "user_id"
+  
 end

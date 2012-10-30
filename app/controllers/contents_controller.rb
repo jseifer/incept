@@ -2,7 +2,8 @@ class ContentsController < ApplicationController
   # GET /contents
   # GET /contents.json
   def index
-    @contents = Content.all
+    @topic = Topic.find(params[:topic_id])
+    @contents = @topic.contents.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,6 +14,7 @@ class ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
+    @topic = Topic.find(params[:topic_id])
     @content = Content.find(params[:id])
 
     respond_to do |format|
@@ -24,7 +26,8 @@ class ContentsController < ApplicationController
   # GET /contents/new
   # GET /contents/new.json
   def new
-    @content = Content.new
+    @topic = Topic.find(params[:topic_id])
+    @content = @topic.contents.build(params[:content])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +37,19 @@ class ContentsController < ApplicationController
 
   # GET /contents/1/edit
   def edit
+    @topic = Topic.find(params[:topic_id])
     @content = Content.find(params[:id])
   end
 
   # POST /contents
   # POST /contents.json
   def create
-    @content = Content.new(params[:content])
+    @topic = Topic.find(params[:topic_id])
+    @content = @topic.contents.build(params[:content])
 
     respond_to do |format|
       if @content.save
-        format.html { redirect_to edit_content_path(@content), notice: 'Content was successfully created.' }
+        format.html { redirect_to topic_path(@topic), notice: 'Content was successfully created.' }
         format.json { render json: @content, status: :created, location: @content }
       else
         format.html { render action: "new" }
@@ -56,7 +61,8 @@ class ContentsController < ApplicationController
   # PUT /contents/1
   # PUT /contents/1.json
   def update
-    @content = Content.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @content = @topic.contents.build(params[:content])
 
     respond_to do |format|
       if @content.update_attributes(params[:content])
@@ -72,6 +78,7 @@ class ContentsController < ApplicationController
   # DELETE /contents/1
   # DELETE /contents/1.json
   def destroy
+    @topic = Topic.find(params[:topic_id])
     @content = Content.find(params[:id])
     @content.destroy
 

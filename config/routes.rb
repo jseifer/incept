@@ -8,10 +8,13 @@ Incept::Application.routes.draw do
   get "dashboard/index"
   get "welcome/index"
   
-  resources :contents
+  
   resources :levels
   resources :tasks   
-  resources :topics
+  resources :topics do
+    resources :contents
+    resources :follows, :only => [:create, :destroy] 
+  end
  
 
   

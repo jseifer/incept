@@ -1,17 +1,5 @@
 
 
-<%= simple_form_for(@content) do |f| %>
-  <%= f.error_notification %>
-  <fieldset>
-  	<legend>Submit Content</legend>
-  <div class="form-inputs">
-    <%= f.input :url, :input_html => {:class=>"input span5"} %>
-  </div>
-  </fieldset>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+<%= render "contents/form"%>
 
-
-<%= link_to 'Back', contents_path %>
+<%= link_to 'Back', topic_path(@topic) %>

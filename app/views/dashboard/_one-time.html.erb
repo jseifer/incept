@@ -1,0 +1,6 @@
+	<% @task_list.each do |task| %>
+		    <% unless task.last_completed.present? %>
+		    <h4><%= task.name %></h4>
+			<%= render "task_completions/new", :task => task %>
+			<% end %>
+		<% end %>

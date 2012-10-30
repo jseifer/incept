@@ -1,0 +1,8 @@
+  <% if current_user.following?(topic) %>
+    <div class="btn-group">
+    <%= link_to("Unsubscribe", topic_follow_path(topic.id.to_param, current_user.get_follow(topic).id),  :"data-no-turbolink"=>true, :method => :delete, :remote => true, :class => "btn btn btn-danger") %>
+    
+    <% else %>
+    <div class="btn-group">
+    <%= link_to("Subscribe", topic_follows_path(topic.to_param),  :"data-no-turbolink"=>true, :method => :post,:remote => true, :class => "btn btn btn-primary") %>
+  <% end %>

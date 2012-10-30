@@ -7,6 +7,8 @@ class Content < ActiveRecord::Base
   serialize :tag_list
   validates_uniqueness_of :url, :message => "has already been submitted"
   
+  
+  validates_presence_of :url, :name
   belongs_to :topic
  
 

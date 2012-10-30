@@ -4,7 +4,7 @@
   	<%= f.input :name %>
  	<%= f.input :started_at , :input_html => {:class=> "input input-small"}%>
     <%= f.input :reccuring %>
-   
+    <%= f.association :content %>
     	
     		<%= f.input :interval, :as => "select", :collection => 1..12, :include_blank => false, :input_html => {:class=> "input input-small"} %>
     	

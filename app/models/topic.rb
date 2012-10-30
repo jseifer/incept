@@ -3,7 +3,7 @@ class Topic < ActiveRecord::Base
   resourcify
   extend FriendlyId
   friendly_id :name, use: :slugged
-  
+  acts_as_followable
   
   validates_presence_of :name, :title, :description
   

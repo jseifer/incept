@@ -1,5 +1,5 @@
-<% @todo_list.each do |task| %>
-		    <% if task.task_due == false%>
+<% @complete.each do |task| %>
+		    <% if task.last_completed.strftime("%Y-%B-%d") == Date.today.strftime("%Y-%B-%d") %>
 		    <div class="row-fluid">
 		    	<div class="span2">	
 			      <%= task.name %>

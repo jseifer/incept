@@ -1,17 +1,18 @@
 <div>
 	    <%= link_to new_task_path, :class=> "btn btn-primary" do %>
-	    <i class="icon-plus"></i>
+	    <i class="icon-plus"></i> New Task
 	    <% end %>
 		<h3>
-		To Do
+		Reccuring Tasks
 		</h3>
 	     <%= render "todo"%>
 		<h3>
-		Tasks
+		One-time Tasks
+		</h3>
+		<%= render "one-time"%>
+		<h3>
+		Completed Tasks
 		</h3>
 		<%= render "complete"%>
-	    <h3>Active Projects</h3>
-		
-
-
+	    
 </div>
