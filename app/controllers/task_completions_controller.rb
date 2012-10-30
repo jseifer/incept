@@ -44,7 +44,7 @@ class TaskCompletionsController < ApplicationController
 
     respond_to do |format|
       if @task_completion.save
-        format.html { redirect_to @task_completion, notice: 'Task completion was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Task completion was successfully created.' }
         format.json { render json: @task_completion, status: :created, location: @task_completion }
       else
         format.html { redirect_to root_path, alert: 'Errors prevented you from completing that task' }
