@@ -62,11 +62,11 @@ class ContentsController < ApplicationController
   # PUT /contents/1.json
   def update
     @topic = Topic.find(params[:topic_id])
-    @content = @topic.contents.build(params[:content])
+    @content = Content.find(params[:id])
 
     respond_to do |format|
       if @content.update_attributes(params[:content])
-        format.html { redirect_to @content, notice: 'Content was successfully updated.' }
+        format.html { redirect_to @topic, notice: 'Content was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,0 +1,24 @@
+
+<% @tasks_by_name.sort.each do |name, tasks| %>
+<table class="table table-bordered table-striped">
+  <thead>
+  	<tr>
+  		<th class="span8"><%= name %></th>
+  		<th></th>
+  	</tr>
+  </thead>
+  <tbody>
+  <% for task in tasks %>
+  <tr>
+  	<td><%= task.completed_at.strftime("%d %B, %Y")%> </td>
+  	<td><%= task.active_minutes %></td>
+  </tr>
+  <% end %>
+  <tr>
+  	<td class="span8">Total Minutes</td>
+  	<td class="span4"><%= tasks.map { |t| t.active_minutes}.sum %></td>
+  </tr>
+ </tbody>
+ </table>
+<% end %>
+

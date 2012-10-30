@@ -2,6 +2,7 @@
   <%= f.input_field :complete %>
   <%= f.button :submit, "Update" %>
   <%= f.input :task_id, :as => "hidden", :input_html => {:value => task.id}%>
+  <%= f.input :user_id, :as => "hidden", :input_html => {:value => current_user.id}%>
   <label>Minutes
   <%= f.input_field :active_minutes,  :class => "input-mini"%>
   </label>

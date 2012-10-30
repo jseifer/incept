@@ -1,11 +1,11 @@
 <% @complete.each do |task| %>
-		    <% if task.last_completed.strftime("%Y-%B-%d") == Date.today.strftime("%Y-%B-%d") %>
+		    <% if task.task.last_completed.strftime("%Y-%B-%d") == Date.today.strftime("%Y-%B-%d") %>
 		    <div class="row-fluid">
 		    	<div class="span2">	
-			      <%= task.name %>
+			      <%= task.task.name %>
 			    </div>
 			    <div class="span2">
-			       <%= task.last_completed.strftime("%d - %B - %Y") %> <%= link_to "Edit", edit_task_path(task) %>
+			       <%= task.task.last_completed.strftime("%d - %B - %Y") %> <%= link_to "Edit", edit_task_path(task) %>
 			    </div>
 			</div>
 			<% end %>
