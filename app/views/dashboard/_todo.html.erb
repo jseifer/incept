@@ -1,6 +1,7 @@
 	<% @todo_list.each do |todo| %>
 		    <% if todo.task_due == true%>
-		    <h4><%= todo.name %></h4>
+		    <p>
+		    <strong><%= todo.name %></strong> <%= link_to "Edit", edit_task_path(todo) %>
 			<%= render "task_completions/new", :task => todo %>
 			<% end %>
 		<% end %>

@@ -1,12 +1,23 @@
+<table class="table table-bordered table-striped">
+<thead>
+	<tr>
+	<th>Name</th>
+	<th>Last Completed</th>
+	<th>Actions</th>
+	</tr>
+</thead>
+<tbody>
 <% @complete.each do |task| %>
-		    <% if task.task.last_completed.strftime("%Y-%B-%d") == Date.today.strftime("%Y-%B-%d") %>
-		    <div class="row-fluid">
-		    	<div class="span2">	
-			      <%= task.task.name %>
-			    </div>
-			    <div class="span2">
-			       <%= task.task.last_completed.strftime("%d - %B - %Y") %> <%= link_to "Edit", edit_task_path(task) %>
-			    </div>
-			</div>
+	<tr>
+		   <% if task.task.last_completed.strftime("%Y-%B-%d") == Date.today.strftime("%Y-%B-%d") %>
+		    
+			      <td><%= task.task.name %></td>
+	              <td><%= task.task.last_completed.strftime("%d - %B - %Y") %></td>
+	              <td><%= link_to "Edit", edit_task_path(task.task) %></td>
+			   
+		
 			<% end %>
 		<% end %>
+   </tr>
+</tbody>
+</table>
