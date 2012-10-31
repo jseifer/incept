@@ -4,7 +4,7 @@
 <%= form_for @task_completion do |f| %>
   <div class="input-append">
   <%= f.number_field :active_minutes, :class => "input input-mini"%>
- 
+  <%= f.hidden_field :complete , :value => true%>
   <%= f.submit "submit", :class => "btn input-append" %>
 
   </div>
