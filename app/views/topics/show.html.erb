@@ -4,30 +4,31 @@
 	    		<% @topic.contents.each do |content| %>
 	                
 				
-					<div class="thumb-header">
-						<h4><%= link_to content.name, topic_content_path(@topic,content)%></h4>
-					</div>
+					
 	     			<div class="row-fluid">
 	     			<div class="thumb-body span4">
-	     				<% if content.image.present? %>
-	     					<%= image_tag(content.image) %>
-	     				<% else %>
-	     					<%= image_tag('missing_vid.jpeg') %>
-	     				<% end %>
+	     			 <a class="thumbnail" href="#">
+	                   <img alt="" src="http://placehold.it/140x100">
+	                 </a>
 	     			</div>
 	     			<div class="thumb-body-container span8">
+	     			<div class="thumb-header">
+						<h4><%= link_to content.name, topic_content_path(@topic,content)%></h4>
+						<hr>
+					</div>
 	     			<div class="thumb-description">
 	     			<p><%= content.description %></p>
 	     			</div>
-	     			<div>
+	     			<div class="pull-right">
 						<p>
-						  <i class="icon-share"></i> <%= link_to "Link", content.url%>
-						| <i class="icon-tasks"></i> <%= link_to "Do This", new_task_path(:content_id => content.id, :name => content.name)  %>
-						| <% content.tags.each do |tag| %>
+						 <% content.tags.each do |tag| %>
 							<%= link_to tag_path(tag) do %>
 								<span class="label label-info"><%= tag.name %></span>
 							<% end %>
-						  <% end %>
+						  <% end %>	
+						|<i class="icon-share"></i> <%= link_to "Link", content.url%>
+						| <i class="icon-tasks"></i> <%= link_to "Do This", new_task_path(:content_id => content.id, :name => content.name)  %>
+						 
 					    </p>
 				   </div>
 				   </div>

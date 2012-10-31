@@ -22,7 +22,7 @@ textarea#topic_description.text {
 /*----------`Task Style--------------*/
 
 textarea#task_description.text {
-  height: 150px;
+  height: 145px;
 }
 
 /*----------`Category Style--------------*/
@@ -31,10 +31,10 @@ textarea#task_description.text {
 /*----------`Content Index--------------*/
 
 div.thumb-description{
-	min-height: 210px;
+	min-height: 80px;
 }
 li.content-thumb{
-	min-height: 240px;
+	min-height: 110px;
 }
 
 div.thumb-body {
