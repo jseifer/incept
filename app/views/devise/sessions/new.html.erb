@@ -12,10 +12,11 @@
   			</div>
 
   			<div class="form-actions">
-    		  <%= f.button :submit, "Sign in", :class=>"btn-info btn" %>
+    		  <%= f.button :submit, "Sign in", :class=>"btn-primary btn" %>
+    		  <p><%= render "devise/shared/links" %></p>
   			</div>
 			<% end %>
 		 </div>
     </div>
 </div>
-<%= render "devise/shared/links" %>
+
