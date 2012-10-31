@@ -12,6 +12,7 @@
 //
 //= require turbolinks
 //= require jquery
+//= require jquery.tokeninput
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require rails.validations

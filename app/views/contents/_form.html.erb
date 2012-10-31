@@ -7,13 +7,13 @@
     <div class="row-fluid">
     <div class="span6">
     <%= f.input :description, :input_html => {:rows => 5, :class => "input input-xlarge"}%>
-    <%= f.input :tag_list %>
+    <%= f.input :tag_list, :input_html => {data: {load: @content.tags}}%>
     </div>
     <div class="span6">
     <%= f.input :video_url%>
     </div>
     </fieldset>
-   </div> 
+   
     <%= f.button :submit, :disable_with => "Processing..." %>
 
 <% end %>
