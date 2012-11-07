@@ -1,15 +1,15 @@
 
 
  
-<%= form_for @task_completion do |f| %>
-  <div class="input-append">
-  <%= f.number_field :active_minutes, :class => "input input-mini"%>
-  <%= f.hidden_field :complete , :value => true%>
-  <%= f.submit "submit", :class => "btn input-append" %>
+<%= simple_form_for @task_completion, :html => {:class=> "form form-horizontal"} do |f| %>
+  <%= f.button :submit, "Update", :class => "btn btn-mini btn-primary input-append pull-right" %>
+  <%= f.input :active_minutes, :input_html => {:class => "input input-mini"}%>
+  <%= f.input :complete , :value => true%>
+  
 
-  </div>
-  <%= f.hidden_field :task_id, :value => task.id%>
-  <%= f.hidden_field :user_id, :value => current_user.id%>
+ 
+  <%= f.input :task_id, :as => "hidden", :input_html => {:value => task.id} %>
+  <%= f.input :user_id, :as => "hidden", :value => current_user.id%>
 
 
 <% end %>

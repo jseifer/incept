@@ -3,9 +3,13 @@
 	    <div class="widget">
 	    	<div class="widget-header">
 				<h3>Reccuring Tasks</h3>
+				<a href="#" rel="tooltip" data-placement="right" title="Track your repeatable learning tasks.">
+				<i class="icon-question-sign pull-right"></i>
+				</a>
 				<%= link_to new_task_path do %>
 				<i class="icon-plus pull-right"></i>
 				<% end %>
+				
 				
 	       </div>
 	       <div class="widget-content">
@@ -28,5 +32,15 @@
 		    	<%= render "complete"%>
 		    </div>
 	    </div>
+</div>
+<div class="span4">
+	<div class="well">
+		<h4>Your Subcriptions</h4>
+		<ul class="nav">
+			<% current_user.all_following.each do |follow| %>
+			<li><%= link_to follow.name, follow%></li>
+			<% end %>
+		</ul>
+	</div>
 </div>
 </div>
