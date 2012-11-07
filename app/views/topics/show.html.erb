@@ -12,11 +12,10 @@
 	                 </a>
 	     			</div>
 	     			<div class="thumb-body-container span8">
-	     			<div class="thumb-header">
-						<h4><%= link_to content.name, topic_content_path(@topic,content)%></h4>
-						<hr>
+	     			<div class="widget-header">
+						<h3><%= link_to content.name, topic_content_path(@topic,content)%></h3>
 					</div>
-	     			<div class="thumb-description">
+	     			<div class="widget-content thumb-description">
 	     			<p><%= content.description %></p>
 	     			</div>
 	     			<div class="pull-right">

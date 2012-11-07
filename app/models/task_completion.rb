@@ -11,12 +11,11 @@ class TaskCompletion < ActiveRecord::Base
   def update_task_details
     self.completed_at = Time.now
     self.started_at = Time.now - (self.active_minutes * 60)
+    self.complete = true
   end
   
   def update_task
-    if self.complete = true
-      self.task.complete = true
-    end
+    self.task.complete = true
     self.task.last_completed = self.completed_at
     self.task.save
   end

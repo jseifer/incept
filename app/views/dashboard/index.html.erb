@@ -1,17 +1,32 @@
-<div>
-	
-	
-		<h3>
-		Reccuring Tasks
-		</h3>
-	     <%= render "todo"%>
-		<h3>
-		One-time Tasks
-		</h3>
-		<%= render "one-time"%>
-		<h3>
-		Recently Completed
-		</h3>
-		<%= render "complete"%>
-	    
+<div class="row-fluid">
+<div class="span8">
+	    <div class="widget">
+	    	<div class="widget-header">
+				<h3>Reccuring Tasks</h3>
+				<%= link_to new_task_path do %>
+				<i class="icon-plus pull-right"></i>
+				<% end %>
+				
+	       </div>
+	       <div class="widget-content">
+	       	<%= render "todo"%>
+		   </div>
+	    </div>
+	    <div class="widget">
+			<div class="widget-header">
+			<h3>One-time Tasks</h3>
+			</div>
+			<div class="widget-content">
+				<%= render "one-time"%>
+			</div>
+		</div>
+		<div class="widget">
+			<div class="widget-header">
+				<h3> Recently Complete </h3>
+			</div>
+		    <div class="widget-content">
+		    	<%= render "complete"%>
+		    </div>
+	    </div>
+</div>
 </div>

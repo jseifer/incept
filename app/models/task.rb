@@ -9,8 +9,16 @@ class Task < ActiveRecord::Base
   has_many :users, :through => :task_completions
   
   
-  
-  
+  def self.current_tasks(user)
+    
+     @user = User.find(user)
+     
+     tasks = user.task_ownerships.where(:reccuring => true)
+     
+    
+ 
+  end
+
   def task_due 
     task_time = self.interval * self.interval_modifier
     if self.last_completed.present?
