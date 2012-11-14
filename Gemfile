@@ -6,6 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -44,6 +45,7 @@ group :test do
 
   gem "capybara"
   gem "guard-rspec"
+  gem "factory_girl_rails"
 end
 # Use unicorn as the app server
  gem 'unicorn'
