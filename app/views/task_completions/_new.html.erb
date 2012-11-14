@@ -6,7 +6,9 @@
   <%= f.input :active_minutes, :input_html => {:class => "input input-mini"}%>
   <%= f.input :complete , :value => true%>
   
-
+  <div id="completed_task" style="display: none;">
+    <%= f.input :completed_at, :include_blank => false,  :input_html => {:class=> "input input-small"}%>
+  </div> 
  
   <%= f.input :task_id, :as => "hidden", :input_html => {:value => task.id} %>
   <%= f.input :user_id, :as => "hidden", :value => current_user.id%>

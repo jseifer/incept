@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:task_id) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:started_at) %></th>
+      <th><%= model_class.human_attribute_name(:interval) %></th>
+      <th><%= model_class.human_attribute_name(:interval_modifier) %></th>
+      <th><%= model_class.human_attribute_name(:last_completed) %></th>
       <th><%= model_class.human_attribute_name(:completed_at) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -18,8 +18,8 @@
     <% @task_completions.each do |task_completion| %>
       <tr>
         <td><%= link_to task_completion.id, task_completion_path(task_completion) %></td>
-        <td><%= task_completion.task_id %></td>
-        <td><%= task_completion.user_id %></td>
+        <td><%= task_completion.interval %></td>
+        <td><%= task_completion.interval_modifier %></td>
         <td><%= task_completion.started_at %></td>
         <td><%= task_completion.completed_at %></td>
         <td><%=l task_completion.created_at %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030092039) do
+ActiveRecord::Schema.define(:version => 20121113053030) do
 
   create_table "contents", :force => true do |t|
     t.string   "name"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20121030092039) do
     t.integer  "interval_modifier"
     t.boolean  "reminders"
     t.datetime "last_completed"
+    t.datetime "due_date"
   end
 
   add_index "tasks", ["content_id"], :name => "index_tasks_on_content_id"

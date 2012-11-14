@@ -31,6 +31,7 @@ gem 'rolify'
 gem 'acts-as-taggable-on'
 gem 'client_side_validations'
 gem 'acts_as_follower'
+gem 'factory_girl_rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -40,7 +41,7 @@ gem 'acts_as_follower'
 gem "rspec-rails", :group => [:test, :development]
 
 group :test do
-  gem "factory_girl_rails"
+
   gem "capybara"
   gem "guard-rspec"
 end
